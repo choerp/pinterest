@@ -127,3 +127,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# 이후에 terminal에서 collectstatic 명령어를 사용하면, 해당 경로에 파일을 모두 모으겠다는 뜻
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static"]
+# 앱에 종속되어있지 않은 static files를 만듬
+
