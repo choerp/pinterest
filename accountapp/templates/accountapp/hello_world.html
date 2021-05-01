@@ -7,7 +7,7 @@
             Hello World!
         </h1>
 
-        <form action="/accountapp/hello_world/"  method="post">
+        <form action="{% url 'accountapp:hello_world' %}"  method="post">
             {% csrf_token %}
 
             <div>
