@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os, environ
 
+from django.urls import reverse_lazy
+
 env = environ.Env(
     DEBUG=(bool, False)
 )
@@ -135,3 +137,5 @@ STATICFILES_DIRS = [
     BASE_DIR / "static"]
 # 앱에 종속되어있지 않은 static files를 만듬
 
+LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
+LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
