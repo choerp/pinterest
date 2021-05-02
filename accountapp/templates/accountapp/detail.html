@@ -21,6 +21,11 @@
                     ChangePW
                 </h4>
             </a>
+            <a href="{% url 'accountapp:delete' pk=user.pk %}">
+                <h4>
+                    Quit
+                </h4>
+            </a>
             {% endif %}
         </div>
 
