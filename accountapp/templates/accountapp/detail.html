@@ -10,9 +10,17 @@
             </h3>
         </div>
         <div>
+            {% if target_user.profile %}
             <h3>
-            {{ target_user.username }}
+                {{ target_user.profile.nickname }}
             </h3>
+            {% else %}
+            <a href="{% url 'profileapp:create' %}">
+                <h4>
+                    Create Profile
+                </h4>
+            </a>
+            {% endif %}
         </div>
         <div>
             {% if target_user == user %}
