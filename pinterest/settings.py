@@ -139,4 +139,4 @@ STATICFILES_DIRS = [
 # 앱에 종속되어있지 않은 static files를 만듬
 
 LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
-LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
+LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
