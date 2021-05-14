@@ -3,27 +3,32 @@
 {% block content %}
 
     <div style="text-align: center; max-width: 500px; margin: 4rem auto">
-
+        {% if target_user.profile %}
             <img src="{{ target_user.profile.image.url }}" alt=""
                  style="height: 8rem; width: 8rem; border-radius: 20rem; margin-bottom: 2rem;">
-
-        <div>
-            {% if target_user.profile %}
-            <h3>
-                {{ target_user.profile.nickname }}
+            <h2>
+            {{ target_user.profile.nickname }}
+            </h2>
+            {% if target_user == user %}
+                <h3>
                 <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">
                     Edit
                 </a>
-            </h3>
-            {% else %}
-            <a href="{% url 'profileapp:create' %}">
-                <h4>
-                    Create Profile
-                </h4>
-            </a>
+                </h3>
             {% endif %}
-        </div>
-        <div>
+        {% else %}
+        {% if target_user == user %}
+        <a href="{% url 'profileapp:create' %}">
+            <h4>
+                Create Profile
+            </h4>
+        </a>
+        {% else %}
+        <h3>
+            닉네임 없음
+        </h3>
+        {% endif %}
+        {% endif %}
             {% if target_user == user %}
             <a href="{% url 'accountapp:update' pk=user.pk %}">
                 <h4>
@@ -37,7 +42,5 @@
             </a>
             {% endif %}
         </div>
-
-    </div>
 
 {% endblock %}
